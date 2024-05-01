@@ -74,6 +74,10 @@ async function init() {
         textInput.length > 0 && textInput.length < 4
         ? textInput 
         : console.log('Please enter 1-3 characters no more or less!')
+    const userFontColor = textColor;
+    let userShapeColor = shape;
+    let userShapetype = pixelImage.toLowerCase ();
+    let userShape;
 }
 
 
