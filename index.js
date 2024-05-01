@@ -78,6 +78,26 @@ async function init() {
     let userShapeColor = shape;
     let userShapetype = pixelImage.toLowerCase ();
     let userShape;
+
+    switch (userShapetype) {
+        case 'square':
+            userShape = new square()
+            console.log('user chose square');
+            break;
+        case 'triangle':
+                userShape = new triangle()
+                console.log('user chose trianlge');
+                break;
+        case 'circle':
+            userShape = new circle()
+            console.log('user chose circle');
+            break;
+        default :
+            console.log('invalid shape');
+            return;
+    }
+
+
 }
 
 
