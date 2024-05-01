@@ -1,5 +1,6 @@
 // Import required modules 
 import inquirer from 'inquirer';
+import fs from 'fs/promises';
 import fs from 'graceful-fs'
 import {circle, square, trianlge} from './lib/shapes.js';
 import { choices } from 'yargs';
@@ -50,5 +51,17 @@ const questions = [
 ];
 
 const { text, text_color, shape_color pixel_image } = await inquirer.prompt
+
+//Write to file function 
+async function writeToFile(fileName, Data){
+    console.log(`Writing [${data}] to file [${fileName}]`);
+
+    try {
+        await fs.writeFile(fileName, data);
+        console.log('You have succesfully generated a logo.svg!');
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 
