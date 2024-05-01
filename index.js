@@ -25,7 +25,7 @@ class Svg {
         this.shapeElement = shape.render();
     } 
 }
-
+// variable for questions array 
 const questions = [
     {
         type: 'input',
@@ -50,7 +50,7 @@ const questions = [
     },
 ];
 
-const { text, text_color, shape_color pixel_image } = await inquirer.prompt
+const { text, textColor, shapeColor pixelImage } = await inquirer.prompt
 
 //Write to file function 
 async function writeToFile(fileName, Data){
@@ -62,6 +62,18 @@ async function writeToFile(fileName, Data){
     } catch (err) {
         console.log(err);
     }
+}
+// Async function to initialize the applications
+async function init() {
+    console.log('initialize Application');
+    
+    //initialze variables 
+    const svgFile = 'logo.svg';
+    const { text, text: textInput, textColor, shape, pixelImage } = await inquirer.prompt(questions);
+    const userText =
+        textInput.length > 0 && textInput.length < 4
+        ? textInput 
+        : console.log('Please enter 1-3 characters no more or less!')
 }
 
 
