@@ -50,7 +50,7 @@ const questions = [
     },
 ];
 
-const { text, textColor, shapeColor pixelImage } = await inquirer.prompt
+const { text, textColor, shapeColor, pixelImage } = await inquirer.prompt
 
 //Write to file function 
 async function writeToFile(fileName, Data){
@@ -96,6 +96,11 @@ async function init() {
             console.log('invalid shape');
             return;
     }
+
+    userShape.setColor(userShapeColor);
+
+    //
+
 
 
 }
