@@ -65,7 +65,7 @@ async function writeToFile(fileName, Data){
 }
 // Async function to initialize the applications
 async function init() {
-    console.log('initialize Application');
+    console.log('initialize application');
     
     //initialze variables 
     const svgFile = 'logo.svg';
@@ -99,7 +99,17 @@ async function init() {
 
     userShape.setColor(userShapeColor);
 
-    //
+    // create a new SVG element adding text and shape elements to it 
+    const svg = new class {
+        constructor (){
+            this.textElement = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${userFontColor}">${userText}</text>`;
+            this.shapeElement = userShape.render()
+        }
+
+        render () {
+            return
+        }
+    }
 
 
 
