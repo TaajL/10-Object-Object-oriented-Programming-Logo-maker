@@ -14,11 +14,11 @@ class Svg {
     }
     // Render the SVG element as string 
     render(){
-        return ``
+        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.shapeElement}${this.textElement}</svg>`
     }
     // Set the text element  with the given text and color
     setTextElemt(text = '' , color = '') {
-        this.textElement = ``
+        this.textElement = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${color}">${text}</text>`;
     }
     // set the shape element using the given shape object
     setShapeElement(shape) {
@@ -118,9 +118,7 @@ async function init() {
         console.log('shape generated!');
         await fs.writeFile(svgFile, svg.render());
         console.log('successfully written!')
-
     }
-
     // call init function and start application 
     init();
 
