@@ -111,7 +111,18 @@ async function init() {
                 }
         }();
 
+        // print shape to the conssole 
+        console.log(`display shape:\n\n${svg.render()}`);
+
+        // write shape to file 
+        console.log('shape generated!');
+        await fs.writeFile(svgFile, svg.render());
+        console.log('successfully written!')
+
     }
+
+    // call init function and start application 
+    init();
 
 
 
