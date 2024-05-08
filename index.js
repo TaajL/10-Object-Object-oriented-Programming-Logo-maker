@@ -1,10 +1,7 @@
 // Import required modules 
-import inquirer from 'inquirer';
-import fs from 'fs/promises';
-import fs from 'graceful-fs'
-import {circle, square, trianlge} from './lib/shapes.js';
-import { choices } from 'yargs';
-
+const inquirer = require('inquirer');
+const fs = require ('fs/promises');
+const {circle, square, trianlge} = require('./lib/shapes.js');
 //Defines and Svg Class that represents and SVG element
 class Svg {
     constructor() {
@@ -29,28 +26,27 @@ class Svg {
 const questions = [
     {
         type: 'input',
-        name: 'text',
+        name: 'textInput',
         message: `TEXT: Enter up to (3) Characters:`,
     },
     {
         type: 'input',
-        name: 'text-color',
+        name: 'textColor',
         message: `TEXT COLOR: Enter a color keyword (OR a hexadecimal number):`, 
     },
     {
         type: 'input',
-        name: 'shape-color',
+        name: 'shapeColor',
         message: `SHAPE COLOR: Enter a color keyword (OR a hexadecimal number):`,
     },
     {
-        type: 'List',
-        name: 'pixel-image',
-        message: 'Choose which Pixel Image you would like?',
+        type: 'list',
+        name: 'shape',
+        message: 'choose which shape you would like?',
         choices: ['Circle', 'Square', 'Triangle'],
     },
 ];
 
-const { text, textColor, shapeColor, pixelImage } = await inquirer.prompt
 
 //Write to file function 
 async function writeToFile(fileName, Data){
@@ -69,14 +65,14 @@ async function init() {
     
     //initialze variables 
     const svgFile = 'logo.svg';
-    const { text, text: textInput, textColor, shape, pixelImage } = await inquirer.prompt(questions);
+    const {  textInput, textColor, shape, shapeColor  } = await inquirer.prompt(questions);
     const userText =
         textInput.length > 0 && textInput.length < 4
         ? textInput 
         : console.log('Please enter 1-3 characters no more or less!')
     const userFontColor = textColor;
-    let userShapeColor = shape;
-    let userShapetype = pixelImage.toLowerCase ();
+    let userShapeColor = shapeColor;
+    let userShapetype = shape.toLowerCase ();
     let userShape;
 
     switch (userShapetype) {
